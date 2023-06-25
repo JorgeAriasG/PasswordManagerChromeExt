@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "PasswordManager Exentsion",
+  "description": "The first version of the password manager",
+  "version": "0.1",
+  "action": {
+    "default_popup": "index.html"
+  }
+}
