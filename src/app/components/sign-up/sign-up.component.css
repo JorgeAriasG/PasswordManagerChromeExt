@@ -1,0 +1,42 @@
+.form-container {
+  display: inherit;
+  flex-flow: column;
+}
+
+.input-container {
+  margin-bottom: 1em;
+  width: -webkit-fill-available;
+}
+
+.input-container p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.input-container input{
+  width: -webkit-fill-available;
+  height: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: #E6E6E6;
+}
+
+.remember-me {
+  display: flex;
+  margin-bottom: 4rem
+}
+
+.remember-me p {
+  margin: 0;
+  margin-left: .5rem;
+}
+
+#loginButton {
+  width: -webkit-fill-available;
+  background-color: #1A1A1A;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  height: 3rem;
+}
