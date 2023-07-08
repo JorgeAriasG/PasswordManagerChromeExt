@@ -45,11 +45,21 @@
   margin-left: .5rem;
 }
 
-#loginButton {
+/* #loginButton {
   width: -webkit-fill-available;
   background-color: #1A1A1A;
   color: white;
   border-radius: 0.5rem;
   border: none;
   height: 3rem;
+} */
+
+.default-button {
+  background-color: #1C4B8E;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  height: 3rem;
+  width: 100%;
 }
+

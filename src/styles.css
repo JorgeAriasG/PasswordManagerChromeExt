@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  display: flex;
+  flex-flow: column;
+  padding: 1rem 2rem;
+  background-color: #0C1623;
+  width: 85vw;
+  margin: 0;
+  color: #EAF1F4;
+}
+
+input{
+  width: -webkit-fill-available;
+  height: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #E6E6E6;
+}
+
+p {
+  color: #EAF1F4;
+}

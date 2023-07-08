@@ -1,4 +1,4 @@
-export type LoginUser = {
+export interface IUserLogin {
   email: string,
   password: string
 }
