@@ -1,5 +1,5 @@
 export interface IPassword {
   site: string,
-  email: string,
-  password: string
+  username: string,
+  pword: string
 }
