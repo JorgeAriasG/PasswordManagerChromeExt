@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as bcrypt from 'bcryptjs';
+import * as crypto  from 'crypto-js'
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,11 @@ import * as bcrypt from 'bcryptjs';
 export class EncryptionService {
   privateKey: string = '123123123';
   hashedPass: string = '';
+  secretPhrase: string = 'someRandomPhrase'
 
   constructor() { }
 
-  encryp(text: string): string {
+  hash(text: string): string {
     let salted: string = bcrypt.genSaltSync(10);
     let timestamp: Number = Date.now();
     let privateKey: string = salted + timestamp;
@@ -19,10 +21,15 @@ export class EncryptionService {
     return this.hashedPass;
   }
 
-  comparePassword(password: string): any {
-    console.log(
-      "Compare passwords: ",
-      bcrypt.compareSync(password, this.hashedPass),
-    );
+  compare(password: string, hashedPass: string): boolean {
+    return bcrypt.compareSync(password, hashedPass);
+  }
+
+  encrypt(password: string) {
+    return crypto.AES.encrypt(password, this.secretPhrase).toString();
+  }
+
+  decrypt(password: string): string {
+    return crypto.AES.decrypt(password, this.secretPhrase).toString(crypto.enc.Utf8);
   }
 }

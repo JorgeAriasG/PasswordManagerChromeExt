@@ -3,5 +3,10 @@ export const environment = {
   PasswordManagerApi: {
     url: 'https://localhost:7128/',
     version: 'v1'
+  },
+  Constants: {
+    LocalStorage: {
+      userId: 'userId'
+    }
   }
 };

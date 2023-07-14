@@ -1,7 +1,8 @@
 import { FormControl, FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
-import { ApiService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { ICreateUser } from 'src/app/models/ICreateUser';
+import { EncryptionService } from 'src/app/services/encryption.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,7 +19,7 @@ export class SignUpComponent {
     password: new FormControl('')
   });
 
-  constructor(private apiService: ApiService) {}
+  constructor(private authService: AuthService, private encryptionService: EncryptionService) {}
 
   onSubmit() {
     let user: ICreateUser = {
@@ -26,10 +27,10 @@ export class SignUpComponent {
       lastname: this.signUpForm.controls.lastname.value || '',
       phoneNumber: parseInt(this.signUpForm.controls.phoneNumber.value || ''),
       email: this.signUpForm.controls.email.value || '',
-      password: this.signUpForm.controls.password.value || ''
+      password: this.encryptionService.hash(this.signUpForm.controls.password.value || '')
     }
 
-    this.apiService.createUser(user)
+    this.authService.createUser(user)
       .subscribe(res => {
         console.log('CreateUser: ' , res);
       }, err => {
